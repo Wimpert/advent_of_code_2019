@@ -1,0 +1,24 @@
+{
+  "name": "advent_of_code_2019",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd ./dist && rm -rf * && cd .. && npm run build && node ./dist/index.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wimpert/advent_of_code_2019.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wimpert/advent_of_code_2019/issues"
+  },
+  "homepage": "https://github.com/Wimpert/advent_of_code_2019#readme",
+  "dependencies": {
+    "typescript": "^3.7.2"
+  }
+}
