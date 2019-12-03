@@ -31,17 +31,14 @@ function execute(codes: Array<number>) : Array<number>{
     while(codes[pointer] !== 99) {
  
      const operationCode = codes[pointer];
-     let operationResult;
  
      if(operationCode === 1){
-         operationResult = codes[codes[pointer+1]] + codes[codes[pointer+2]];
+        codes[codes[pointer+3]] = codes[codes[pointer+1]] + codes[codes[pointer+2]];
      } else if(operationCode === 2){
-         operationResult = codes[codes[pointer+1]] * codes[codes[pointer+2]];
+        codes[codes[pointer+3]] = codes[codes[pointer+1]] * codes[codes[pointer+2]];
      } else {
          throw new Error("unknown oper")
      }
- 
-     codes[codes[pointer+3]] = operationResult;
      pointer = pointer + 4; 
  }
  return codes;
