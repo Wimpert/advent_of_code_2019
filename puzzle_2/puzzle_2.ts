@@ -31,11 +31,13 @@ function execute(codes: Array<number>) : Array<number>{
     while(codes[pointer] !== 99) {
  
      const operationCode = codes[pointer];
- 
+     const noun = codes[codes[pointer+1]];
+     const verb = codes[codes[pointer+2]];
+  
      if(operationCode === 1){
-        codes[codes[pointer+3]] = codes[codes[pointer+1]] + codes[codes[pointer+2]];
+        codes[codes[pointer+3]] = noun + verb;
      } else if(operationCode === 2){
-        codes[codes[pointer+3]] = codes[codes[pointer+1]] * codes[codes[pointer+2]];
+        codes[codes[pointer+3]] = noun * verb;
      } else {
          throw new Error("unknown oper")
      }
