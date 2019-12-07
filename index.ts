@@ -1,3 +1,3 @@
-import * as puzzle from './puzzle_5/puzzle_5';
+import * as puzzle from './puzzle_6/puzzle_6';
 
 puzzle.solve();
