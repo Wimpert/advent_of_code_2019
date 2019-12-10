@@ -22,7 +22,7 @@ enum PARAMETERMODE {
 export function solve(){
    const codes = readFileToNumbers('../puzzle_9/input.txt', ',');
 
-   const result = execute(codes,[1],0);
+   const result = execute(codes,[2],0);
  
    console.log(result);
 }
@@ -79,7 +79,7 @@ const  execute = (codes: Array<number>, inputs: Array<number>, pointer : number)
 
    it++;
    //console.log(codes[pointer]);
-   if(it === 100000){
+   if(it === 1000000000){
       console.log("max iteration reached");
       outputReached = true;
    }
