@@ -2,16 +2,13 @@ import { readFileToNumbers } from "../utils/utils";
 
 export function solve(){
    const codes = readFileToNumbers('../puzzle_7/input_test.txt', ',');
-   // const output = execute(codes);
-   // console.log(output);
+  
 
    const sequences = [5,6,7,8,9];
-   //const sequences = [0,1,2,3,4];
    const combinations = generateCombinations(sequences);
    let currentMax = 0;
    let currentMaximumSeq;
 
- // console.log(  executeLoopBackProgram(codes, [9,8,7,6,5]));
    
    for(let combination of combinations){
       //let toThrusters = executeLoopBackProgram(codes, combination);
@@ -24,7 +21,7 @@ export function solve(){
          currentMax = toThrusters;
       }
    }
-   console.log(currentMaximumSeq, currentMax);
+   console.log("Solution: ", currentMaximumSeq, currentMax);
 
 }
 
@@ -32,8 +29,6 @@ const  execute = (codes: Array<number>, inputs: [number,number], pointer : numbe
    let output ;
    let outputReached = false;
    let operationCode;
-
-   //console.log('inputs are', inputs);
 
    while(codes[pointer] !== 99 && !outputReached) {
 
@@ -94,11 +89,7 @@ const  execute = (codes: Array<number>, inputs: [number,number], pointer : numbe
     pointer = pointer + pointerIncrement; 
 }
 
-if(codes[pointer] === 99 && outputReached){
-   console.log('CASE');
-}
-
-return {output, codes, pointer, exitCode : operationCode};
+return {output, codes, pointer, exitCode : operationCode ? operationCode : codes[pointer]};
 }
 
 
@@ -145,7 +136,7 @@ const executeLoopBackProgram = (codes: Array<number>, sequenceCombination : Arra
       }else{
          inputs = [ outputs[getPreviousAmpIndex(amplifierIndex)], sequenceCombination[amplifierIndex]];
       }
-      // console.log(`starting with: ${amplifierIndex}, outputs: ${outputs}, previous index ${getPreviousAmpIndex(amplifierIndex)}`);
+      console.log(`starting with: ${amplifierIndex}, outputs: ${outputs}, previous index ${getPreviousAmpIndex(amplifierIndex)}`);
       let out = execute(amplifierStates[amplifierIndex], inputs, pointers[amplifierIndex])
       // console.log(`executed with: ${amplifierIndex}, out: ${out.output}`);
       outputs[amplifierIndex] = out.output;
@@ -154,7 +145,7 @@ const executeLoopBackProgram = (codes: Array<number>, sequenceCombination : Arra
       if(firstRound && amplifierIndex === 4){
          firstRound = false;
       }
-      console.log(out.exitCode);
+
       if(out.exitCode === undefined || out.exitCode === 99){
          console.log(`${out.exitCode} at ${amplifierIndex}`);
          exit = true;
